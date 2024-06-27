@@ -9,10 +9,12 @@
   "author": "H854",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "joi": "^17.13.3",
-    "mongoose": "^8.4.3"
+    "mongoose": "^8.4.4"
   }
 }

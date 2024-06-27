@@ -5,6 +5,7 @@ const ExpressError = require("./ExpressError");
 const cors = require("cors");
 const transactionRouter = require("./route/transaction");;
 const cookiesParser = require("cookie-parser")
+require("dotenv").config();
 
 main()
 .then(()=>{
@@ -13,7 +14,7 @@ main()
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/expense-tracker');
+  await mongoose.connect(process.env.MONGO_URL);
 }
 
 app.use(express.urlencoded({extended: true}));
@@ -38,7 +39,7 @@ app.use((err,req,res,next)=>{
     message: message
   })
 })
-
-app.listen(3000,()=>{
-  console.log("Server is listening to port : ",3000);
+const PORT = process.env.PORT || 3000
+app.listen(PORT,()=>{
+  console.log("Server is listening to port : ",PORT);
 })
